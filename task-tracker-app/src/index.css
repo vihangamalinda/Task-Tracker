@@ -69,6 +69,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+}
+
+.task-fa-times{
+  color: red;
+  cursor: pointer;
 }
 
 .add-form {
