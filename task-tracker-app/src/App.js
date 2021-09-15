@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import AddTask from './components/AddTask';
 
 import Header from "./components/Header";
@@ -7,22 +7,26 @@ import Tasks from "./components/Tasks";
 
 function App() {
   const [showForm, setShowForm] = useState(false)
-  const [tasks,setTasks]  = useState([{
-    id: 1,
-    text : "Hello World",
-    day : "13/09/2021",
-    reminder : true,
-},
-{
-  id: 2,
-  text : "Second Hello",
-  day : "14/09/2021",
-  reminder : true,
-},
-])
+  const [tasks,setTasks]  = useState([])
 // Deleting an item 
 const onDeleteTask=(id)=>{
   setTasks(tasks.filter((task)=> task.id !== id))
+}
+
+useEffect(()=>{
+  const getTask = async () =>{
+    const tasksFromServer = await fetchingTask()
+    setTasks(tasksFromServer)
+  }
+  getTask()
+},[])
+
+// Fetching the data from the server
+const fetchingTask = async () =>{
+  const response = await fetch("http://localhost:5000/tasks")
+  const data = await response.json()
+  console.log(data)
+  return data
 }
 
 // Toggle Riminder

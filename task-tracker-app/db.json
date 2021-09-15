@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text" : "Hello World",
+      "day" : "13/09/2021",
+      "reminder" : true
+  },
+  {
+    "id": 2,
+    "text" : "Second Hello",
+    "day" : "14/09/2021",
+    "reminder" : true
+  },
+  {
+    "id": 3,
+    "text" : "Third Hello",
+    "day" : "15/09/2021",
+    "reminder" : true
+  }
+  ]
+}
